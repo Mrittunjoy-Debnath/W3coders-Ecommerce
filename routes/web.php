@@ -68,3 +68,24 @@ Route::get('admin/coupon/active/{coupon_id}','Admin\CouponController@Active');
 //
 Route::get('admin/orders','Admin\CouponController@orderIndex')->name('admin.orders');
 Route::get('admin/orders/view/{id}','Admin\CouponController@viewOrder');
+
+// =========================== fontend routes ===================
+// ================= cart ============
+Route::post('add/to-cart/{prouct_id}','CartController@addToCart');
+Route::get('cart','CartController@cartPage');
+Route::get('cart/destroy/{cart_id}','CartController@destroy');
+Route::post('cart/quantity/update/{cart_id}','CartController@quantityUpdate');
+Route::post('coupon/apply','CartController@applyCoupon');
+Route::get('coupon/destroy','CartController@couponDestroy');
+// ================= wishlist ============
+Route::get('add/to-wishlist/{prouct_id}','WishlistController@addToWishlist');
+Route::get('wishlist','WishlistController@wishPage');
+Route::get('wishlist/destroy/{wishlist_id}','WishlistController@destroy');
+
+// ============= product details ============
+Route::get('product/details/{product_id}','FontendController@productDetail');
+
+// checkout page
+Route::get('checkout','CheckoutController@index');
+Route::post('place/order','OrderController@storeOrder')->name('place-order');
+Route::get('order/success','OrderController@orderSuccess');

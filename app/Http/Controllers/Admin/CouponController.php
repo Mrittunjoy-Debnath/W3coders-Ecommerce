@@ -31,7 +31,7 @@ class CouponController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        return Redirect()->back()->with('success','Coupon added');
+        return Redirect()->back()->with('cart','Coupon added');
     }
 
     public function couponEdit($coupon_id){

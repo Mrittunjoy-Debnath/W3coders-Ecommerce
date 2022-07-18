@@ -1,11 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.frontend-master')
 
 @section('content')
 <div class="container">
+    @if(session('loginError'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{session('loginError')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('User Login') }}</div>
+                <div class="card-header">{{ __('Login') }}
+                <a href="{{route('register')}}" class="btn btn-danger ">Register Now</a>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
