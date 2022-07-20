@@ -66,8 +66,8 @@ Route::get('admin/coupon/delete/{coupon_id}','Admin\CouponController@couponDelet
 Route::get('admin/coupon/inactive/{coupon_id}','Admin\CouponController@Inactive');
 Route::get('admin/coupon/active/{coupon_id}','Admin\CouponController@Active');
 //
-Route::get('admin/orders','Admin\CouponController@orderIndex')->name('admin.orders');
-Route::get('admin/orders/view/{id}','Admin\CouponController@viewOrder');
+Route::get('admin/orders','Admin\OrderController@orderIndex')->name('admin.orders');
+Route::get('admin/orders/view/{id}','Admin\OrderController@viewOrder');
 
 // =========================== fontend routes ===================
 // ================= cart ============
@@ -82,10 +82,20 @@ Route::get('add/to-wishlist/{prouct_id}','WishlistController@addToWishlist');
 Route::get('wishlist','WishlistController@wishPage');
 Route::get('wishlist/destroy/{wishlist_id}','WishlistController@destroy');
 
+//shop page rotues
+Route::get('shop','FontendController@shopPage')->name('shop.page');
+
 // ============= product details ============
 Route::get('product/details/{product_id}','FontendController@productDetail');
+
+//category wise product show
+Route::get('category/product-show/{id}','FontendController@catWiseProduct');
 
 // checkout page
 Route::get('checkout','CheckoutController@index');
 Route::post('place/order','OrderController@storeOrder')->name('place-order');
 Route::get('order/success','OrderController@orderSuccess');
+
+//usr routes
+Route::get('user/order','UserController@order')->name('user.order');
+Route::get('user/order-view/{id}','UserController@orderView');
